@@ -17,6 +17,7 @@
 2. Reset.scss
 3. Base.scss
 4. ESlint
+5. MediaQueries config in mixin file
 
 - How to configure Webpack 4 from scratch for a basic website (https://dev.to/pixelgoo/how-to-configure-webpack-from-scratch-for-a-basic-website-46a5)
 - Webpack, paso a paso (https://medium.com/@afdiaz_/webpack-paso-a-paso-2fdf095d5bdd)
