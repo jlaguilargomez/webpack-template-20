@@ -6,6 +6,7 @@ module.exports = {
   // Path to your entry point. From this file Webpack will begin his work
   entry: './src/js/index.js',
   output: {
+    // eslint-disable-next-line no-undef
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
@@ -95,6 +96,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'pages/product-page/product-page.html',
+      template: './src/pages/product-page/product-page.html',
     }),
   ],
   // Default mode for Webpack is production.
