@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // Path to your entry point. From this file Webpack will begin his work
@@ -13,12 +14,17 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+            },
           },
-        },
+          {
+            loader: 'eslint-loader',
+          },
+        ],
       },
       {
         // Apply rule for .sass, .scss or .css files
@@ -86,11 +92,15 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
     }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './src/index.html',
+    }),
   ],
   // Default mode for Webpack is production.
   // Depending on mode Webpack will apply different things
   // on final bundle. For now we don't need production's JavaScript
   // minifying and other thing so let's set mode to development
   mode: 'development',
-  watch: true
+  watch: true,
 };
